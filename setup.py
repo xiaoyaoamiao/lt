@@ -11,17 +11,17 @@ setup(
     keywords='launchtest',
     description='APP Launch Test',
     license='MIT License',
-    url='',
+    url='https://github.com/xiaoyaoamiao/lt.git',
     author='bob',
     author_email='miao2005du@163.com',
     packages=find_packages(),
     include_package_data=True,
     platforms='any',
     install_requires=[
-            'matplotlib == 3.5.0'
-            'ImageHash == 4.2.1'
-            'facebook-wda  == 1.0.11'
-            'pandas == 1.3.4'
-            'Pillow == 8.1.0'
+            'matplotlib >= 3.5.0'
+            'ImageHash >= 4.2.1'
+            'facebook-wda  >= 1.0.11'
+            'pandas >= 1.3.4'
+            'Pillow >= 8.1.0'
         ],
 )
