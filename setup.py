@@ -18,10 +18,10 @@ setup(
     include_package_data=True,
     platforms='any',
     install_requires=[
-            'matplotlib >= 3.5.0'
-            'ImageHash >= 4.2.1'
-            'facebook-wda  >= 1.0.11'
-            'pandas >= 1.3.4'
+            'matplotlib >= 3.5.0',
+            'ImageHash >= 4.2.1',
+            'facebook-wda  >= 1.0.11',
+            'pandas >= 1.3.4',
             'Pillow >= 8.1.0'
         ],
 )

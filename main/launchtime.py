@@ -11,18 +11,18 @@ import subprocess
 import argparse
 import line
 
-bundle_id = ''
-package_name = ''
+
 main_activity = ''
 screen = 3
 
 
 class launchtest:
 
-    def __init__(self, video_screen=3, run_times=10, ios="http://localhost:8100"):
+    def __init__(self, package, video_screen=3, run_times=10, ios="http://localhost:8100"):
         self.screen = video_screen
         self.times = run_times
         self.ios_host = ios
+        self.package_name = package
 
     def start_video(self, video_path):
         global process
@@ -48,11 +48,11 @@ class launchtest:
             time.sleep(5)
             self.start_video(video_path)
             time.sleep(5)
-            d.session(package_name)
+            d.session(self.package_name)
             time.sleep(15)
             # d(resourceId="com.disney.shanghaidisneyland_goo:id/img_avatar").wait()
             self.pause_video_recording()
-            d.app_stop(package_name)
+            d.app_stop(self.package_name)
         print('\n\n=======Android Launch Time Test Stopped ========\n')
         return device_name
 
@@ -73,7 +73,7 @@ class launchtest:
             time.sleep(5)
             self.start_video(video_path)
             time.sleep(5)
-            c.session(bundle_id)
+            c.session(self.package_name)
             # element.wait()
             # if element.exists or elementA.exists:
             #     element.click()
@@ -104,7 +104,7 @@ if __name__ == '__main__':
                         help="Device OS Type, Only Support [1]: IOS & [2]: Android."
                              "[0]: Display available screens",
                         choices=[0, 1, 2])
-    # parser.add_argument("-p", "--package_name", help="APP Package ID")
+    parser.add_argument("-p", "--package_name", help="APP Package ID")
 
     group = parser.add_mutually_exclusive_group()
 
@@ -115,12 +115,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.operation_system == 1:
-        device_name = launchtest().ios_launch_test()
+        device_name = launchtest(package=args.package_name).ios_launch_test()
         line.make_curve().cut_video(device_name, args.cut_size, 10)
         print("ios")
     elif args.operation_system == 2:
         print("android")
-        device_name = launchtest().android_launch_test()
+        device_name = launchtest(package=args.package_name).android_launch_test()
         if args.cut_size is not None:
             line.make_curve().cut_video(device_name, args.cut_size, 10)
         else:
