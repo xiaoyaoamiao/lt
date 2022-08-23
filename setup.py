@@ -4,10 +4,9 @@
 # Description: APP Launch Test
 
 from setuptools import setup, find_packages
-
 setup(
     name='launchTest',
-    version='0.0.1',
+    version='0.0.2',
     keywords='launchtest',
     description='APP Launch Test',
     license='MIT License',
