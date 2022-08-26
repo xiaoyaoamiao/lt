@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='bblt',
-    version='1.0.3',
+    version='1.0.4',
     keywords='launchtest',
     description='APP Launch Test',
     license='MIT License',
@@ -22,6 +22,8 @@ setup(
             'ImageHash >= 4.2.1',
             'facebook-wda  >= 1.0.11',
             'pandas >= 1.3.4',
-            'Pillow >= 8.1.0'
+            'Pillow >= 8.1.0',
+            'uiautomator2>=2.16.13',
+            'Pillow == 8.1.0'
         ],
 )
