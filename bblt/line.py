@@ -113,7 +113,7 @@ class make_curve:
         df = pd.DataFrame(data, index=xarray)
         df.plot()
         plt.title("App Launch time in " + device_name + ": " + str(round(total_time/len(differences), 2)))
-        plt.xlabel("App launch image actions change")
+        plt.xlabel("App bblt image actions change")
         plt.ylabel("Launch time")
         plt.show()
 
@@ -138,17 +138,17 @@ class make_curve:
         totalaccuracy = phashvalue + ahashvalue
         print(totalaccuracy)
 
-if __name__ == '__main__':
-    # cut_video("LYA-AL00", "380x780+710+50", 10)
-    make_curve().cut_video("NOH-AN00", "380x780+710+50", 10)
-    # cut_video("huawei_p40_pro", "380x780+710+50", 10)
-    # cut_video("cepheus", "380x780+710+50", 10)
-    # cut_video("huawei_p30_pro", "380x780+710+50", 10)
-    # cut_video("LYA-AL00", "700x1440+1280+50", 10) #test for local screen
-    # cut_video("20220211110056", "700x1440+1280+50", 10)
-    # cut_video("iPhonexr", "600x910+780+30", 10)
-    # cut_video("iPhone12", "600x910+780+30", 10)
-    # cut_video("iPhoneX", "600x910+780+30", 10)
-    # cut_video("iPhone13ProMax", "600x910+780+30", 10)
-    #HUAWEI_P30_PRO
-    # debug()
+# if __name__ == '__main__':
+#     # cut_video("LYA-AL00", "380x780+710+50", 10)
+#     make_curve().cut_video("NOH-AN00", "380x780+710+50", 10)
+#     # cut_video("huawei_p40_pro", "380x780+710+50", 10)
+#     # cut_video("cepheus", "380x780+710+50", 10)
+#     # cut_video("huawei_p30_pro", "380x780+710+50", 10)
+#     # cut_video("LYA-AL00", "700x1440+1280+50", 10) #test for local screen
+#     # cut_video("20220211110056", "700x1440+1280+50", 10)
+#     # cut_video("iPhonexr", "600x910+780+30", 10)
+#     # cut_video("iPhone12", "600x910+780+30", 10)
+#     # cut_video("iPhoneX", "600x910+780+30", 10)
+#     # cut_video("iPhone13ProMax", "600x910+780+30", 10)
+#     #HUAWEI_P30_PRO
+#     # debug()

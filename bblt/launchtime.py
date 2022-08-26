@@ -9,7 +9,7 @@ import uiautomator2 as u2
 import datetime
 import subprocess
 import argparse
-import line
+from bblt import launchtime
 
 
 main_activity = ''
@@ -34,6 +34,7 @@ class launchtest:
         if process is not None:
             subprocess.Popen.kill(process)
 
+    @classmethod
     def android_launch_test(self):
         d = u2.connect()
         device_name = d.info['productName']
@@ -56,6 +57,7 @@ class launchtest:
         print('\n\n=======Android Launch Time Test Stopped ========\n')
         return device_name
 
+    @classmethod
     def ios_launch_test(self):
         c = wda.Client(self.ios_host)
         device_name = c.info['name'].replace(" ", "")
@@ -116,17 +118,16 @@ if __name__ == '__main__':
 
     if args.operation_system == 1:
         device_name = launchtest(package=args.package_name).ios_launch_test()
-        line.make_curve().cut_video(device_name, args.cut_size, 10)
+        # line.make_curve().cut_video(device_name, args.cut_size, 10)
         print("ios")
     elif args.operation_system == 2:
         print("android")
         device_name = launchtest(package=args.package_name).android_launch_test()
-        if args.cut_size is not None:
-            line.make_curve().cut_video(device_name, args.cut_size, 10)
-        else:
-            line.make_curve().cut_video(device_name, "600x910+780+30", 10)
+        # if args.cut_size is not None:
+        #     line.make_curve().cut_video(device_name, args.cut_size, 10)
+        # else:
+        #     line.make_curve().cut_video(device_name, "600x910+780+30", 10)
     else:
         launchtest().verify_displayed_screens()
-
 
 #xcodebuild -project ~/Documents/AutoProjects/wda_back/WebDriverAgent/WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination id=00008110-0009549A3EEA801E test
