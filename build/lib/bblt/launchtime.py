@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import matplotlib
-
-from build.lib.bblt import line
-
 matplotlib.use('Agg')
 import os
 import wda
@@ -58,18 +55,6 @@ class launchtest:
             d.app_stop(self.package_name)
         print('\n\n=======Android Launch Time Test Stopped ========\n')
         return device_name
-
-    @classmethod
-    def launch_curve(self, device, cut_size="", different_allow=10):
-        if "ios" in device:
-            if cut_size == "":
-                cut_size = "600x910+780+30"
-            device_name = self.ios_launch_test()
-        else:
-            if cut_size == "":
-                cut_size = "380x780+710+50"
-            device_name = self.android_launch_test()
-        line.make_curve().cut_video(device_name, cut_size, different_allow)
 
     @classmethod
     def ios_launch_test(self):
@@ -132,15 +117,15 @@ if __name__ == '__main__':
 
     if args.operation_system == 1:
         device_name = launchtest(package=args.package_name).ios_launch_test()
-        line.make_curve().cut_video(device_name, args.cut_size, 10)
+        # line.make_curve().cut_video(device_name, args.cut_size, 10)
         print("ios")
     elif args.operation_system == 2:
         print("android")
         device_name = launchtest(package=args.package_name).android_launch_test()
-        if args.cut_size is not None:
-            line.make_curve().cut_video(device_name, args.cut_size, 10)
-        else:
-            line.make_curve().cut_video(device_name, "600x910+780+30", 10)
+        # if args.cut_size is not None:
+        #     line.make_curve().cut_video(device_name, args.cut_size, 10)
+        # else:
+        #     line.make_curve().cut_video(device_name, "600x910+780+30", 10)
     else:
         launchtest().verify_displayed_screens()
 
