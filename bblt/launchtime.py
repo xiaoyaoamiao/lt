@@ -48,11 +48,11 @@ class launchtest:
         process_temp = subprocess.Popen(command, shell=True)
         process_temp.communicate()
 
-    @classmethod
     def cut_video(self, device_name, size, different_allow):
         video_path = file_dir + "/recorded_videos/" + device_name + "/video/"
         screen_path = file_dir + "/recorded_videos/" + device_name + "/screenshot/"
         video_list = []
+        print("Video Path: " + video_path)
         for (dirpath, dirnames, filenames) in walk(video_path):
             video_list.extend(filenames)
             break
@@ -200,7 +200,6 @@ class launchtest:
         print('\n\n======= IOS Launch Time Test Stopped ========\n')
         return device_name
 
-    @classmethod
     def launch_curve(self, device, cut_size="", different_allow=10):
         if "ios" in device:
             if cut_size == "":
