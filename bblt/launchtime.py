@@ -2,8 +2,7 @@
 from __future__ import unicode_literals
 import matplotlib
 
-from build.lib.bblt import line
-
+import line
 matplotlib.use('Agg')
 import os
 import wda
