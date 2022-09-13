@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='bblt',
-    version='1.1.5',
+    version='1.1.6',
     keywords='launchtest',
     description='APP Launch Test',
     license='MIT License',
@@ -22,8 +22,9 @@ setup(
             'ImageHash >= 4.2.1',
             'facebook-wda  >= 1.0.11',
             'pandas >= 1.3.4',
-            'Pillow >= 8.1.0',
+            'Pillow >= 9.2.0',
             'uiautomator2>=2.16.13',
-            'Pillow == 8.1.0'
+            'Pillow == 8.1.0',
+            'pyautogui == 0.9.53'
         ],
 )

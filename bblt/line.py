@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from PIL import Image
 from PIL import ImageFilter
@@ -138,8 +140,8 @@ class make_curve:
         totalaccuracy = phashvalue + ahashvalue
         print(totalaccuracy)
 
-# if __name__ == '__main__':
-#     # cut_video("LYA-AL00", "380x780+710+50", 10)
+if __name__ == '__main__':
+      make_curve().cut_video("LYA-AL00", "380x780+710+50", 10)
 #     make_curve().cut_video("NOH-AN00", "380x780+710+50", 10)
 #     # cut_video("huawei_p40_pro", "380x780+710+50", 10)
 #     # cut_video("cepheus", "380x780+710+50", 10)

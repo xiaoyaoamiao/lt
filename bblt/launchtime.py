@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import matplotlib
+# import matplotlib
 import matplotlib.pyplot as plt
 from PIL import Image
 from PIL import ImageFilter
@@ -14,13 +14,13 @@ import uiautomator2 as u2
 import datetime
 import subprocess
 import argparse
+import pyautogui
 file_dir = str(__file__).replace(str(__file__).split("/")[-1], "")
-matplotlib.use('Agg')
 
 
 class launchtest:
 
-    def __init__(self, package, video_screen=3, run_times=10, ios="http://localhost:8100"):
+    def __init__(self, package, video_screen=1, run_times=10, ios="http://localhost:8100"):
         self.screen = video_screen
         self.times = run_times
         self.ios_host = ios
@@ -73,7 +73,7 @@ class launchtest:
             f.extend(filenames)
             break
         for file in f:
-            command = "convert " + dir + "/" + file + " -gravity center  -crop "+size+" +repage " + dir + "/converted/" + file
+            command = "convert " + dir + "/" + file + " -crop "+size+" " + dir + "/converted/" + file
             process_temp = subprocess.Popen(command, shell=True)
             process_temp.communicate()
 
@@ -202,14 +202,21 @@ class launchtest:
 
     def launch_curve(self, device, cut_size="", different_allow=10):
         if "ios" in device:
-            if cut_size == "":
-                cut_size = "600x910+780+30"
             device_name = self.ios_launch_test()
         else:
-            if cut_size == "":
-                cut_size = "380x780+710+50"
             device_name = self.android_launch_test()
         self.cut_video(device_name, cut_size, different_allow)
+
+    def test_location(self, size):
+        pyautogui.screenshot('t.png')
+        # point = pyautogui.position()
+        # print(point)
+        # size = f"{point.x}x{point.y}+780+30"
+        convert_str = f"convert 't.png' -crop {size} 'tt.png'"
+        process_temp = subprocess.Popen(convert_str, shell=True)
+        process_temp.communicate()
+        im = Image.open('tt.png')
+        im.show()
 
     def verify_displayed_screens(self):
         global process
@@ -221,7 +228,10 @@ class launchtest:
 
 
 # if __name__ == '__main__':
-#     launchtest("com.disney.shanghaidisneyland_goo", run_times=1).android_launch_test()
+    # launchtest("").test_location("1150x1970+10+100")
+    # launchtest("").test_location("750x1600+2700+380")
+    # launchtest("").show("LYA-AL00", 10)
+    # launchtest("com.disney.shanghaidisneyland_goo", run_times=1).launch_curve("android","750x1600+2700+380")
     # parser = argparse.ArgumentParser()
     # parser.add_argument("-os", "--operation_system", default=1, type=int,
     #                     help="Device OS Type, Only Support [1]: IOS & [2]: Android."
