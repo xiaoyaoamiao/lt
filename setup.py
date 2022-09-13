@@ -24,7 +24,7 @@ setup(
             'pandas >= 1.3.4',
             'Pillow >= 9.2.0',
             'uiautomator2>=2.16.13',
-            'Pillow == 8.1.0',
+            'Pillow == 9.2.0',
             'pyautogui == 0.9.53'
         ],
 )
