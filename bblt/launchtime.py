@@ -244,8 +244,12 @@ if __name__ == '__main__':
     # launchtest("").test_location("750x1600+2700+380")
     # launchtest("").show("sdk_gphone_x86", 10)
     # launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).help()
-    launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=2).\
-        launch_curve("android", "393x829+20+80", different_allow=15)
+
+    launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).\
+        launch_curve("android", "360x804+20+80", different_allow=15)
+
+    # launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).\
+    #     launch_curve("android", "393x829+20+80", different_allow=15)
     # parser = argparse.ArgumentParser()
     # parser.add_argument("-os", "--operation_system", default=1, type=int,
     #                     help="Device OS Type, Only Support [1]: IOS & [2]: Android."
