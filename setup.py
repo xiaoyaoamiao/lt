@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='bblt',
-    version='1.1.9',
+    version='1.2.0',
     keywords='launchtest',
     description='APP Launch Test',
     license='MIT License',
