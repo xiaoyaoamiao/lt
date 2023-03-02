@@ -74,6 +74,8 @@ class launchtest:
             break
         for file in f:
             command = "convert " + dir + "/" + file + " -crop "+size+" " + dir + "/converted/" + file
+            print("Cut command")
+            print(command)
             process_temp = subprocess.Popen(command, shell=True)
             process_temp.communicate()
 
@@ -215,7 +217,7 @@ class launchtest:
         convert_str = f"convert 't.png' -crop {size} 'tt.png'"
         process_temp = subprocess.Popen(convert_str, shell=True)
         process_temp.communicate()
-        im = Image.open('tt.png')
+        im = Image.open('11.jpg')
         im.show()
 
     def verify_displayed_screens(self):
@@ -226,12 +228,16 @@ class launchtest:
         if process is not None:
             subprocess.Popen.kill(process)
 
+    def help(self):
+        print("Check screen devices command: ffmpeg -f avfoundation -list_devices true -i "" ")
+        print(f"Belt.launchtest('', video_screen=3, run_times=1).launch_curve('android', '380x780+1450+150')")
 
-# if __name__ == '__main__':
-    # launchtest("").test_location("1150x1970+10+100")
+
+if __name__ == '__main__':
+    # launchtest("").test_location("380x780+1450+150")
     # launchtest("").test_location("750x1600+2700+380")
-    # launchtest("").show("LYA-AL00", 10)
-    # launchtest("com.disney.shanghaidisneyland_goo", run_times=1).launch_curve("android","750x1600+2700+380")
+    # launchtest("").show("sdk_gphone_x86", 10)
+    launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).launch_curve("android", "380x780+1450+150")
     # parser = argparse.ArgumentParser()
     # parser.add_argument("-os", "--operation_system", default=1, type=int,
     #                     help="Device OS Type, Only Support [1]: IOS & [2]: Android."
