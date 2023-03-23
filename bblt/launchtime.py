@@ -189,7 +189,8 @@ class launchtest:
         for x in range(0, self.times):
             # start_time = str(datetime.datetime.now()).replace(" ", "_")
             file_dir = str(__file__).replace(str(__file__).split("/")[-1], "")
-            video_path = file_dir + f"/recorded_videos/{device_name}/video/video_{device_name}.mkv"
+            start_time = str(datetime.datetime.now()).replace(" ", "_")
+            video_path = file_dir + f"/recorded_videos/{device_name}/video/video_{start_time}.mkv"
             time.sleep(5)
             self.start_video(video_path)
             time.sleep(5)
@@ -236,8 +237,9 @@ class launchtest:
         print("********Device information:********")
         try:
             print(wda.Client(self.ios_host).info)
-        except:
             print(u2.connect().info)
+        except:
+            print("No Device Found, Please connect Device")
 
 
 if __name__ == '__main__':
@@ -245,10 +247,10 @@ if __name__ == '__main__':
     # launchtest("").test_location("750x1600+2700+380")
     # launchtest("").show("sdk_gphone_x86", 10)
     # launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).help()
-
-    launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).launch_curve("android", "360x804+20+80", different_allow=15)
-
-    launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).launch_curve("android", "393x829+20+80", different_allow=15)
+    # launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=10).launch_curve("android", "384x792+20+100", different_allow=15)
+    # launchtest("com.disney.shanghaidisneyland.dev", video_screen=3, run_times=10).cut_video("iPhone", "450x950+20+80", 15)
+    launchtest("com.disney.shanghaidisneyland.dev", video_screen=3, run_times=10).launch_curve("ios", "450x950+20+80", different_allow=15)
+    # launchtest("com.disney.shanghaidisneyland_goo", video_screen=3, run_times=1).launch_curve("android", "393x829+20+80", different_allow=15)
     # parser = argparse.ArgumentParser()
     # parser.add_argument("-os", "--operation_system", default=1, type=int,
     #                     help="Device OS Type, Only Support [1]: IOS & [2]: Android."
